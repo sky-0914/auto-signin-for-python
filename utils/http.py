@@ -1,32 +1,45 @@
-import logging
-
 import requests
+from requests import Session
+
+
+def default_header(func):
+    def inner(*a, **b):
+        if "headers" not in b:
+            b["headers"] = {"Content-Type": "application/json"}
+        return func(*a, **b)
+
+    return inner
 
 
 def session():
     return requests.session()
 
 
-def http(method, url, data, **keys):
-    response = {}
-    if method == "POST":
-        response = requests.post(url, data, **keys)
-    elif method == "GET":
-        response = requests.get(url, data, **keys)
-    return response
-
-
+@default_header
 def get(url, data, **keys):
-    response = requests.get(url, data, **keys)
-    if response.status_code != 200:
-        logging.error("接口异常", response)
-        raise Exception("接口异常")
-    return response
+    return requests.get(url, data, **keys)
 
 
+@default_header
 def post(url, data, **keys):
-    response = requests.post(url, data, **keys)
-    if response.status_code != 200:
-        logging.error("接口异常", response)
-        raise Exception("接口异常")
-    return response
+    return requests.post(url, data, **keys)
+
+
+@default_header
+def delete(url, data, **keys):
+    return requests.delete(url, data, **keys)
+
+
+@default_header
+def session_get(s: Session, url, **keys):
+    return s.get(url, **keys)
+
+
+@default_header
+def session_post(s: Session, url, **keys):
+    return s.post(url, **keys)
+
+
+@default_header
+def session_delete(s: Session, url, **keys):
+    return s.delete(url, **keys)

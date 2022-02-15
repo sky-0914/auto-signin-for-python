@@ -2,7 +2,6 @@
 
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-import heapdump.index
 from heapdump import index as heapdump
 
 
@@ -15,5 +14,6 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
     heapdump.auto()
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
