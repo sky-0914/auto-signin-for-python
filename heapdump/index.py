@@ -90,27 +90,27 @@ def auto():
     api.is_signin(session)
     # 签到
     api.add_signin(session)
-    page = 1
-    size = 10
-    # 文章列表
-    new_list_result = api.new_list(session, page, size)
-    # 获取总页数
-    if new_list_result["extra"]["total"] % new_list_result["extra"]["pageSize"] == 0:
-        sum_pages = int(new_list_result["extra"]["total"] / new_list_result["extra"]["pageSize"])
-    else:
-        sum_pages = int(new_list_result["extra"]["total"] / new_list_result["extra"]["pageSize"]) + 1
-
-    for i in range(5):
-        print("开始第" + str(i + 1) + "次循环")
-        time.sleep(10)
-        page = random.randrange(1, sum_pages)
-        new_list_result = api.new_list(session, page, size)
-        time.sleep(15)
-        new_list_index = random.randrange(1, size)
-        seq_id = new_list_result["data"][new_list_index]["seqId"]
-        time.sleep(36)
-        new_like_discuss(session, seq_id, c_list[random.randrange(1, len(c_list))])
-        print("结束第" + str(i + 1) + "次循环")
+    # page = 1
+    # size = 10
+    # # 文章列表
+    # new_list_result = api.new_list(session, page, size)
+    # # 获取总页数
+    # if new_list_result["extra"]["total"] % new_list_result["extra"]["pageSize"] == 0:
+    #     sum_pages = int(new_list_result["extra"]["total"] / new_list_result["extra"]["pageSize"])
+    # else:
+    #     sum_pages = int(new_list_result["extra"]["total"] / new_list_result["extra"]["pageSize"]) + 1
+    #
+    # for i in range(5):
+    #     print("开始第" + str(i + 1) + "次循环")
+    #     time.sleep(10)
+    #     page = random.randrange(1, sum_pages)
+    #     new_list_result = api.new_list(session, page, size)
+    #     time.sleep(15)
+    #     new_list_index = random.randrange(1, size)
+    #     seq_id = new_list_result["data"][new_list_index]["seqId"]
+    #     time.sleep(36)
+    #     new_like_discuss(session, seq_id, c_list[random.randrange(1, len(c_list))])
+    #     print("结束第" + str(i + 1) + "次循环")
 
 
 def test():
