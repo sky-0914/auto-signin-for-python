@@ -87,9 +87,9 @@ def new_like_discuss(session, seq_id, content):
 def auto():
     session = api.session()
     session.cookies.set("serviceTicket", "e7ae53b20fc240e1a18555fbc3cce680")
-    api.is_signin(session)
     i = random.randrange(1, 100)
     time.sleep(i)
+    api.is_signin(session)
     # 签到
     api.add_signin(session)
     # page = 1
