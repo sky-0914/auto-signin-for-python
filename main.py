@@ -3,6 +3,7 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 from heapdump import index as heapdump
+from leetcode import index as leetcode
 
 
 def print_hi(name):
@@ -14,6 +15,7 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('PyCharm')
     heapdump.auto()
+    leetcode.auto()
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
